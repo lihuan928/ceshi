@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="txt"> 
+		<input type="text" id="txt2"> 
+		<input type="button" value="TEST" onclick="test()"/>  
+		<script>
+			function test(){         
+				var s =document.getElementById("txt");  
+				var s2 =document.getElementById("txt2");  
+				window.location.href="b.html?"+"txt="+encodeURI(s.value)+ "&text="+encodeURI(s2.value);  
+			}
+		</script>
+	</body>
+</html>

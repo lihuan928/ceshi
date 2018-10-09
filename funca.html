@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>调取子页面的方法</title>
+	</head>
+	<script type="text/javascript"> 
+		function ff(){ 
+			alert("我是父页面的方法"); 
+		} 
+	</script>
+
+	<body>
+		
+		<div style="background: lightblue;"> 
+			<input type="button" value="调取子页面的方法" onclick='window.frames["childPage"].sonff();' /> 
+		</div> 
+		<iframe id="childPage" name="childPage" src="funcb.html" width="100%" frameborder="0"></iframe>
+	</body>
+</html>

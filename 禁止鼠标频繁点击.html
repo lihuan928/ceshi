@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="me" style="width: 100px;height: 50px; margin: 5rem auto;background: blue;color: #fff">点我</div>
+		<div id="me2" style="width: 100px;height: 50px; margin: 5rem auto;background: blue;color: #fff">点我</div>
+		<script>
+			var c =null;
+		    var dom = document.querySelector('#me');
+		    dom.addEventListener('click',function(){
+		        clearTimeout(c);
+		        c = setTimeout(function(){
+		            console.log(2000)
+		        },1000)
+		    },false)
+		    
+		    var dom2 = document.querySelector('#me2');
+		    dom2.addEventListener('click',function(){		   
+		        console.log(2000)
+		    },false)
+		</script>
+	</body>
+</html>

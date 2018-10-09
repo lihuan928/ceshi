@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div onclick="aa()">click事件</div>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script>
+			function aa(){
+				alert(1)
+			}
+			$('div').click(function(){
+				alert(2)
+			})
+		</script>
+	</body>
+</html>

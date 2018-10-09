@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				font-family: Arial;
+				font-size: 10pt;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div1">050000036636</div>
+		<div class="div2">2</div>
+		<!--<a href="d.html?id=1&name=2" target="_blank">跳转</a>-->
+		<a href="##" class="aa" target="_blank">点击</a>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script>
+			var id = $('.div1').text();
+			console.log(id)
+			var type = $('.div2').text();
+			var href = 'd.html?id=' + id + '&type=' + type;
+			$('.aa').click(function(){
+				$(this).attr('href',href)
+			});
+		</script>
+	</body>
+
+</html>

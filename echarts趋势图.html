@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script src="js/echarts.min.js"></script>
+	</head>
+
+	<body>
+		<div id="main" style="width: 100%;height: 530px;"></div>
+		<script>
+			var myChart = echarts.init(document.getElementById('main'));
+			function getCountDays() {
+				var curDate = new Date();
+				/* 获取当前月份 */
+				var curMonth = curDate.getMonth();
+				/*  生成实际的月份: 由于curMonth会比实际月份小1, 故需加1 */
+				curDate.setMonth(curMonth + 1);
+				/* 将日期设置为0, 这里为什么要这样设置, 我不知道原因, 这是从网上学来的 */
+				curDate.setDate(0);
+				/* 返回当月的天数 */
+				return curDate.getDate();
+			}
+			var day = getCountDays();
+			function getEvryDay() {
+				var dayArry = [];
+				var myDate = new Date();
+				myDate.getFullYear(); 
+				for(var k = 1; k <= day; k++) {
+					dayArry.push(myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + k);
+				}
+				return dayArry;
+			};
+			var data = getEvryDay();
+			myChart.setOption(option = {
+				title: {
+					text: '弱覆盖场景数量',
+					x : 'center'
+				},
+				tooltip: {
+					trigger: 'axis'
+				},
+				legend: {
+				    data:['弱覆盖场景数量'],
+				    top : 26,
+					align : 'left'
+				},
+				xAxis: {
+					data: data,
+				},
+				yAxis: {
+					splitLine: {
+						show: false
+					}
+				},
+				toolbox : {
+						show : true,
+						x: '70%',
+						feature : {
+							mark : {
+								show : true
+							},
+							dataView : {
+								show : true,
+								readOnly : false
+							},
+							magicType : {
+								show : true,
+								type : [ 'line', 'bar', 'stack', 'tiled' ]
+							},
+							restore : {
+								show : true
+							},
+							saveAsImage : {
+								show : true
+							}
+						}
+					},
+				dataZoom: [{
+					type: 'slider'
+				}],
+				visualMap: {
+					top: 10,
+					right: 10,
+					pieces: [{
+						gt: 0,
+						lte: 50,
+						color: '#096'
+					}, {
+						gt: 50,
+						lte: 100,
+						color: '#ffde33'
+					}, {
+						gt: 100,
+						lte: 150,
+						color: '#ff9933'
+					}, {
+						gt: 150,
+						lte: 200,
+						color: '#cc0033'
+					}, {
+						gt: 200,
+						lte: 300,
+						color: '#660099'
+					}, {
+						gt: 300,
+						color: '#7e0023'
+					}],
+					outOfRange: {
+						color: '#999'
+					}
+				},
+				series: [
+					{
+						name: 'Beijing AQI',
+						type: 'line',
+						data: [320, 332, 301, 334, 390, 320, 332, 301, 334, 390, 334, 390, 98, 77, 101, 99, 40, 99, 40, 98, 77, 101, 99, 40, 150, 232, 201, 154, 190, 154, 190],
+						markLine: {
+							silent: true,
+							data: [{
+								yAxis: 50
+							}, {
+								yAxis: 100
+							}, {
+								yAxis: 150
+							}, {
+								yAxis: 200
+							}, {
+								yAxis: 300
+							}]
+						}
+					}
+				]
+			});
+		</script>
+	</body>
+
+</html>

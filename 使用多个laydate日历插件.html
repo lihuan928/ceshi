@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" class="date-input" />
+		<input type="text" class="date-input" />
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script src="laydate/laydate.js"></script>
+		<script>
+			lay('.date-input').each(function(){
+			  laydate.render({
+			    elem: this
+			  });
+			});
+		</script>
+	</body>
+</html>

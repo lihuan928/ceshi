@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>  
+	        <p>div内的p标签</p>  
+	    </div>  
+	    <script src="js/jquery.1.11.3.min.js"></script>
+	    <script>
+	    	$('p').click(function(){
+	    		alert(1)
+	    	});
+	    	$('div').on('click','p',function(){   
+	            alert(2)    
+	        });  
+	    </script>
+	</body>
+</html>

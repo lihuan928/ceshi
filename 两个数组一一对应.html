@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				font-family: Arial;
+				font-size: 10pt;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script>
+			var arrA = ["语文", "数学", "英语", "历史", "地理", "政治", "物理", "化学", "生物"];
+			var arrB = [12, 25, 29, 63, 96, 45, 12, 52, 65];
+			var info = {};
+
+			function ArrayToObj(arrA, arrB) {
+
+				for(var i = 0; i < arrA.length; i++) {
+					info[arrA[i]] = arrB[i];
+				}
+
+				return info;
+			}
+			ArrayToObj(arrA, arrB);
+			console.log(info);
+			for(var key in info) {
+				console.log(key + ':' + info[key])
+			}
+		</script>
+	</body>
+
+</html>

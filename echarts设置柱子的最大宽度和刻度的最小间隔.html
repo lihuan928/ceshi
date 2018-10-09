@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="showDivId" style="width: 100%;height: 530px;"></div>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script src="js/echarts.min.js"></script>
+		<script>
+			var curChart = echarts.init(document.getElementById('showDivId'));
+			// 初始化report对象
+			curChart.setOption({
+				title: {
+					text: '重点场景概述-石家庄-新华区',
+					x: 'center'
+				},
+				color: ['#003366', '#006699', '#4cabce', '#e5323e', '#985457'],
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: {
+						type: 'shadow'
+					}
+				},
+				legend: {
+					data: ['重点场景数量', '弱覆盖场景数量', '高流量场景数量', '需扩容场景数量', '存在告警场景数量'],
+					align: 'left',
+					top: 26
+				},
+				toolbox: {
+					show: true,
+					orient: 'vertical',
+					left: '94%',
+					top: 'top',
+					feature: {
+						mark: {
+							show: true
+						},
+						dataView: {
+							show: true,
+							readOnly: false
+						},
+						magicType: {
+							show: true,
+							type: ['line', 'bar', 'stack', 'tiled']
+						},
+						restore: {
+							show: true
+						},
+						saveAsImage: {
+							show: true
+						}
+					}
+				},
+				calculable: true,
+				xAxis: [{
+					type: 'category',
+					axisTick: {
+						show: false
+					},
+					data: ['新华区'],
+					axisLabel: {
+						interval: 0,
+						color: '#000000',
+						fontSize: 12
+					},
+					minInterval: 1 //解决问题3：实际上的统计信息，其数据都是整数，没有小数。所以希望图形中的刻度也不要出现小数；
+				}],
+				yAxis: [{
+					type: 'value'
+				}],
+				series: [{
+						name: '重点场景数量',
+						type: 'bar',
+						barGap: '1', //柱子间隙
+						data: [320],
+						barMaxWidth: '80'  //解决问题2：在柱子数量少的时候，剩下的柱子不要太粗，否则不好看；
+					},
+					{
+						name: '弱覆盖场景数量',
+						type: 'bar',
+						barGap: '1', //柱子间隙
+						data: [220],
+						barMaxWidth: '70',  //解决问题2：在柱子数量少的时候，剩下的柱子不要太粗，否则不好看；
+					},
+					{
+						name: '高流量场景数量',
+						type: 'bar',
+						barGap: '1', //柱子间隙
+						data: [150],
+						barMaxWidth: '70',  //解决问题2：在柱子数量少的时候，剩下的柱子不要太粗，否则不好看；
+					},
+					{
+						name: '需扩容场景数量',
+						type: 'bar',
+						barGap: '1', //柱子间隙
+						data: [98],
+						barMaxWidth: '70',  //解决问题2：在柱子数量少的时候，剩下的柱子不要太粗，否则不好看；
+					},
+					{
+						name: '存在告警场景数量',
+						type: 'bar',
+						barGap: '1', //柱子间隙
+						data: [232],
+						barMaxWidth: '70',  //解决问题2：在柱子数量少的时候，剩下的柱子不要太粗，否则不好看；
+					}
+				]
+			});
+			//根据窗口大小调整图表
+			window.onresize = curChart.resize; //解决问题4：如果窗口大小变化，图表可以自动进行调整；
+		</script>
+	</body>
+
+</html>

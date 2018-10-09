@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="button" value="给父页面赋值" onclick="setHtml();"/>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script>
+			function setHtml() {
+	            //在iframe中给父页面元素赋值
+				$('#default', window.parent.document).html("给父页面赋值!");
+	        }
+		</script>
+	</body>
+</html>

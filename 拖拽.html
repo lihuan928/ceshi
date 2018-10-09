@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style>
+			.cellPos-ul {
+				display: none;
+			}
+			
+			.cellPos-ul1,
+			.cellPos-ul2 {
+				overflow: hidden;
+			}
+			
+			.cellPos-ul1 li {
+				width: 50%;
+				float: left;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				margin-bottom: 6px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="btn"><input type="button" value="点击按钮" /></div>
+		<div class="box" style="position: relative;width: 400px;">
+			<ul class="cellPos-ul1 cellPos-ul" style="position: absolute;top: 10px; left: 10px;width: 400px;padding: 10px;border: 1px solid #000000;">
+				<li>基站名222：<span></span></li>
+				<li>站点类型：<span></span></li>
+				<li>所属地区：<span></span></li>
+				<li>站点高度：<span></span></li>
+				<li>方位角：<span></span></li>
+				<li>下倾角：<span></span></li>
+				<li class="close">关闭</li>
+			</ul>
+
+			<ul class="cellPos-ul1 cellPos-ul" style="position: absolute;top: 160px; left: 10px;width: 400px;padding: 10px;border: 1px solid #000000;">
+				<li>基站名：<span></span></li>
+				<li>站点类型：<span></span></li>
+				<li>所属地区：<span></span></li>
+				<li>站点高度：<span></span></li>
+				<li>方位角：<span></span></li>
+				<li>下倾角：<span></span></li>
+				<li class="close">关闭</li>
+			</ul>
+		</div>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script src="js/drag.js"></script>
+		<script>
+			$(function() {
+				$('.btn').click(function() {
+					$('.cellPos-ul').show();
+				});
+				$('.cellPos-ul').each(function(index) {
+					$(this).myDrag({
+						direction: 'all',
+						randomPosition: false, //初始化随机位置
+					});
+				});
+				$('.close').click(function(){
+					$(this).parent().hide();
+				})
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script src="js/echarts.min.js"></script>
+	</head>
+
+	<body>
+		<div id="main" style="width: 505px;height: 530px;"></div>
+		<script>
+			$(function() {
+				var myChart = echarts.init(document.getElementById('main'));
+				$.get('js/hebei.json', function(geoJson) {
+					echarts.registerMap('河北', geoJson);
+					myChart.setOption(option = {
+						geo: {
+							map: '河北',
+							label: {
+								normal: {
+									show: true,
+									color: 'black'
+								},
+								emphasis: {
+									show: true,
+									color: 'red'
+								}
+							},
+							roam: false,
+							itemStyle: {
+								emphasis: {
+									areaColor: 'yellow'
+								}
+							},
+							"left": 0,
+							"right": 0,
+							"top": 0,
+							"bottom": 0
+						}
+					});
+				});
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<select name="queryType" onchange="Cmd(this)">
+			<option value="1" name="queryType"> 1</option>
+			<option value="2" name="queryType"> 2</option>
+			<option value="3" name="queryType"> 3</option>
+		</select>
+		<div>
+			<div id="div1">111</div>
+			<div id="div2" style="display:none;">222</div>
+			<div id="div3" style="display:none;">333</div>
+		</div>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script>
+			function Cmd(obj) {
+				$(obj).next("div").find("div").each(function() {
+					$(this).hide();
+				});
+				$("#div" + obj.value).show();
+			}
+		</script>
+	</body>
+
+</html>

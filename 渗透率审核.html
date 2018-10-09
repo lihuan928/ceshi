@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+	</head>
+	<style>
+		.permeability-box{overflow: hidden;position: absolute;top: 10%;right: 0;z-index: 999;background-color: #fff;}
+		.permeability{width: 400px;overflow: hidden;border: 1px solid #ccc;padding: 10px;}
+		.title-permeability{padding-bottom: 10px;text-align: center;border-bottom: 1px solid #ccc;}
+		.main-title{font-size: 16px;color: #2494F2;}
+		.subhead{font-size: 12px;margin-top: 6px;}
+		.floor-div{overflow: hidden;}
+		.floor-title{font-size: 14px;line-height: 36px;}
+		.base-box .all-icheck[type="radio"] {width: 16px;height: 16px;vertical-align: -3px;-webkit-appearance: none;background-color: rgb(255, 255, 255);cursor: pointer;margin-top: 0;border-width: 1px;border-style: solid;border-color: #ccc;border-image: initial;outline: none;border-radius: 50%;} 
+		.base-box .all-icheck[type="radio"]:checked{background: url(img/blue2.png) no-repeat center center;background-size: cover;border: 0;outline: none;}
+		.base-box{font-size: 14px;margin: 5px 0;}
+		.base-box label{margin-right: 6px;}
+		.photo-box{overflow: hidden;}
+		.img-box{width: 100px;height: 100px;margin-right: 10px;}
+		.explain{border: 1px solid #ccc;border-radius: 3px;padding: 10px;line-height: 26px;}
+		.back-btn{width: 90px;height: 36px;line-height: 36px;background-color: #2494F2;color: #fff;text-align: center;border-radius: 5px;margin: 20px auto 5px;}
+		.permeability-img{width: 400px;height: 448px;}
+	</style>
+	<body>
+		<div class="permeability-box">
+			<div class="permeability-img fl"><img src="img/123.png"/></div>
+			<div class="permeability fl">
+				<div class="title-permeability">
+					<div class="main-title">渗透率审核</div>
+					<div class="subhead">（任务ID：SJJ20180515A）</div>
+				</div>
+				<div class="floor-div">
+					<div class="floor-title">渗透率不达标楼层：</div>
+					<div class="base-box">
+						<label class="set-label"> <input type="radio" name="rad1" class="icheck all-icheck" checked="checked"> <span class="all-choose">1层</span>
+						</label>
+						<label class="set-label"> <input type="radio" name="rad1" class="icheck all-icheck"> <span class="all-choose">4层</span>
+						</label>
+						<label class="set-label"> <input type="radio" name="rad1" class="icheck all-icheck"> <span class="all-choose">6层</span>
+						</label>
+						<label class="set-label"> <input type="radio" name="rad1" class="icheck all-icheck"> <span class="all-choose">10层</span>
+						</label>
+					</div>
+					<div class="floor-title">渗透率不达标原因照片：</div>
+					<div class="photo-box">
+						<div class="fl img-box"><img src="img/123.png"/></div>
+					</div>
+					<div class="floor-title">渗透率不达标原因说明：</div>
+					<div class="explain">
+						该楼层因为有物体阻挡，故不能贯穿怎个楼层测试，图中即为阻挡物照片。
+					</div>
+					<div class="back-btn">返回前台</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

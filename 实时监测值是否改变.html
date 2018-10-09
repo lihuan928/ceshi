@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="jiance">123</div>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script>
+			var historyVal = $('#jiance').html();
+			setInterval(function() {
+				var curVal = $('#jiance').html();
+				if (curVal !== historyVal) {
+				    historyVal = curVal;	
+				    alert(1)
+				}
+			}, 5000); 
+		</script>
+	</body>
+</html>

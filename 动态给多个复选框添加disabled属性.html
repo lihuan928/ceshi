@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+	</head>
+	<body>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script>
+			var checkeds = $('input');
+			for (var i = 0; i < checkeds.length; i++) {
+				checkeds[i].setAttribute("disabled", "disabled");
+			};
+		</script>
+	</body>
+</html>
