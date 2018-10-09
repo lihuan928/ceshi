@@ -1,0 +1,271 @@
+﻿1；更改单选框默认样式
+#lh_content .lh_form_ol .lh_qz_ipt6[type="radio"] {
+	-webkit-appearance: none;
+	width: 14px;
+	height: 14px;
+	border: 1px solid #c5c5c5;
+	background: #FFFFFF;
+	outline: none;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 7px;
+}
+#lh_content .lh_form_ol .lh_qz_ipt6[type="radio"]:checked {
+	background: url(../img/radio.png) no-repeat center center #ffffff;
+}
+
+更改复选框样式，只需把type=“radio”改为type=“checkbox”即可。
+
+2；添加删除class名：
+$('.lh_nav_ul>li').click(function() {		
+		$('.lh_nav_ul>li').removeClass('lh_nav_active');
+		$(this).addClass('lh_nav_active')
+	});
+
+3：找到li里面的最后一个a : .lh_nav .lh_nav_ul li:last-child a{
+	                   	border-right: none;
+				padding-right: 0;
+			   }
+
+4.css3找到4的倍数：.lh_section .lh_zp_ul li:nth-child(4n){
+   			 margin-right: 0;
+			}
+
+5.父元素透明，子元素不透明：background:rgba(0,0,0,0.5)!important;
+   			    background:#000;
+                            filter:Alpha(opacity=50);
+
+6.响应式页面 ：移动端  @media screen and (max-width: 480px){}
+
+	       iPad   @media screen and (max-width: 768px){}
+7.点击导航滚动到同一页面的指定内容：
+			$("#nav1").click(function() {
+				$("html,body").animate({
+					scrollTop: $("#cust").offset().top
+					}, 600);
+
+			})
+8.圆角：	border-top-left-radius
+　		border-top-right-radius
+　　		border-bottom-right-radius
+　　		border-bottom-left-radius
+
+9.tr,td内容不垂直居中: valign=“top”
+
+10.最小高度：	height: 759px;
+		min-height: 759px;
+	
+		_height: 759px;
+	
+		height: auto !important;
+	
+		overflow: visible;
+
+11.购物车判断商品加减：	$(".lh_jian_cp").click(function(){
+				var carValue = $(this).prev(".num").val();
+				carValue++
+				$(this).prev('.num').val(carValue)
+			})
+			$(".lh_add_cp").click(function(){
+				var carValue = $(this).next(".num").val();
+				carValue--
+				if(carValue<=1){
+					carValue = 1
+				}
+				$(this).next('.num').val(carValue)
+			})
+
+12.超出部分显示...：	white-space:nowrap; 
+			overflow:hidden;
+			text-overflow:ellipsis;
+
+13.去掉textarea右下角：resize:none;
+
+14.input只能读不能写： <input type="text" name="input1" value="中国" readonly>
+
+15.图片加载失败显示默认图片： <img src="1.png" alt="" onerror="onerror=null;src='ganxi_add.png'"/>
+
+16.动态添加删除li: 	$(".lh_mecan_sell").click(function(){
+				var html ='<li><span>新鲜白菜</span><span>￥12.00</span><span class="lh_delete"><img src="../img/maicailiebiaoclose.png" /></span></li>';
+    				$(".lh_maicai_liebiao").append(html);
+			})
+			$(".lh_maicai_liebiao").on('click','.lh_delete',function(){
+	   			 $(this).parent().remove();
+			})
+
+17.解决移动端a标签点击出现背景和闪烁：a{ -webkit-tap-highlight-color:transparent;}
+
+18.input文本框限制字数：<input type="text" maxlength="8"/>
+
+19.【jQuery】用jQuery给文本框添加只读属性【readOnly】：
+		$("#id").attr("readonly":"readonly");    //添加readonly属性 & $("#ID").attr({ readonly: 'true' });
+ 		$("#id").removeAttr("readonly");    //去除readonly属性
+
+20.弹出框下面的内容不滚动：$(function() {
+				var event_f = function(e){e.preventDefault();} 
+				$("input").click(function() {
+					$("div").show();				
+					document.body.addEventListener('touchmove', event_f, false);  
+			   	})
+			  	 $('.close').click(function(){
+					$("div").hide();
+					document.body.removeEventListener('touchmove', event_f, false); 
+		 	    	})	
+			    })
+
+21.移动端1px边框：
+	<meta name="viewport" content="initial-scale=0,maximum-scale=1.0,minimum-scale=.5,user-scalable=0,width=device-width" />
+
+22.animation属性：animation: boxa 2s linear 1s infinite;（boxa:动画名字；2s:持续时间;linear:无限动画;1s:等待时间）
+
+23.验证手机号 ：$(".tel_yz").blur(function(){
+			var tel_yz = $(".tel_yz").val();
+			reg = /^1[3|4|5|7|8]\d{9}$/;
+			if(!reg.test(tel_yz)){
+				alert("请输入正确的手机号")
+			}else{
+				console.log(1111)
+			}
+		})
+
+24.兼容低版本IE background-rgba(0,0,0,0.3):
+				background:rgba(0,0,0,0.3);
+				filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000);
+
+25.控制段落句号后面自动换行：	var p = document.getElementById("content");
+				var content = p.innerHTML;
+				p.innerHTML = content.replace(/。/g, "。<br>");
+
+26.1像素边框：.my_ul1,.my_ul2{
+	background: #fff;
+	margin-bottom: .2rem;
+	position: relative;
+	border: none;
+}
+.my_ul1:after, .my_ul2:after{
+	content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+.my_ul1:before, .my_ul2:before{
+	content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    .my_ul1:before, .my_ul2:before,.my_ul1:after, .my_ul2:after{
+		transform: scaleY(0.7)
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .my_ul1:before, .my_ul2:before,.my_ul1:after, .my_ul2:after{
+		transform: scaleY(0.5)
+
+    }
+}
+
+27.换行 word-wrap:break-word ;
+
+
+    }
+}
+
+28.新窗口打开target="_blank"
+
+29.几秒后跳转到指定页面：<meta http-equiv="refresh" content="3; url=http://www.yongxi.hk/">
+
+30.swiper轮播
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"><img src="img/4.png" /></div>
+			<div class="swiper-slide"><img src="img/4.png" /></div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			autoplay: 3000,
+			pagination: '.swiper-pagination',
+			paginationClickable: false,
+			loop: true,
+			observer: true,
+			observeParents: true,
+			autoplayDisableOnInteraction : false
+		});
+	</script>
+
+31.移动端meta标签：
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
+		
+		<meta name="format-detection" content="telephone=no" />
+		
+		<meta name="format-detection" content="email=no" />
+		
+		<meta name="format-detection" content="address=no;">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+32.找到ul>a>li：
+		.jk-heath a:nth-child(3n) li{
+			margin-right: 0;
+		}
+
+33.文字在div内水平垂直居中：vertical-align: middle;line-height: normal;父元素要写行高（父元素的实际高度）
+
+34.css3实现鼠标移上图片放大：
+			.aboutCtn-ul li img{  
+    				transition: all 1s;  
+			}  
+			.aboutCtn-ul li img:hover{  
+    				transform: scale(1.2);  
+			} 
+
+35.网站title logo：<link rel="icon" href="img/icon.png" type="image/x-icon">
+
+36.修改select默认样式： .apply-select{
+				appearance:none;
+ 				-moz-appearance:none;
+ 				-webkit-appearance:none;
+				display: inline-block;	
+				width: 560px;
+				height: 56px;
+				line-height: 56px;
+				border: 1px solid #cccccc;
+				background:url(../img/select-1.png) no-repeat scroll 520px center transparent; 
+				margin-left: 14px;
+				padding-left: 14px;
+				color: #999;
+   				font-size: 18px;
+    				outline: none;  
+    				text-indent:0.01px;
+　　				text-overflow:""; 
+			}
+			.apply-select::-ms-expand{ 
+				display: none;
+			}
+
+37.修改placeholder的颜色：.donation-input::-webkit-input-placeholder {   
+	color: #006835;   
+}   
+.donation-input:-moz-placeholder {    
+	color: #006835;   
+}   
+.donation-input::-moz-placeholder {     
+	color: #006835;   
+}   
+.donation-input:-ms-input-placeholder {   
+	color: #006835;   
+}
+
+37.判断某个元素是否有class名，用hasClass
+
+38.初始化viewer的时候，flyTo(entity)，可以锁定视角，就不会到地下去了
