@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Jquery特效实现输入字数</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <meta name="viewport" http-equiv="X-UA-Compatible" content="width=device-width" />
+ 
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+ 
+    <!-- Jquery实现主要脚本-->
+ 
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function() {
+ 
+            var counter = $("#divform textarea").val().length; //获取文本域的字符串长度
+ 
+            $("#gptu var").text(counter);
+ 
+            $(document).keyup(function() {
+                var text = $("#divform textarea").val();
+                var counter = text.length;
+                $("#gptu var").text(counter); //每次减去字符长度
+                if(counter >= 190){
+                	$("#gptu var").css("color","#0000FF")
+                }else{
+                	$("#gptu var").css("color","#C00")
+                }
+            });
+        });
+    </script>
+ 
+</head>
+<body>
+    <form action="" method="post">
+    <div id="divform" align="center">
+        <p id="gptu">
+            <var style="color: #C00">--</var>/200。</p>
+        <p>
+            <label>
+                <textarea name="" cols="" rows="" maxlength="200" style="height: 80px; width: 400px"></textarea>
+            </label>
+        </p>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" class="aaa" style="margin-right: 20px;"/><input type="text" readonly="readonly" value="你好啊啊啊啊啊" class="bbb" style="border: none" />
+	</body>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		$(".aaa").click(function(){
+			if($(".aaa").is(":checked")) {
+					$(".bbb").removeAttr('readonly');
+					$(".bbb").css('border','1px solid #000')
+				} else {
+					$(".bbb").attr("readonly","readonly");
+					$(".bbb").css('border','none')
+				}
+		})
+	</script>
+</html>

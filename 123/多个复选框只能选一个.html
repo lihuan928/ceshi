@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="use_redpackets_content" id="oneCheck">
+			<ul class="use_redpackets_nav">
+				<li>
+					<input type="checkbox" name="oneBox" value="" />
+				</li>
+				<li>
+					<input type="checkbox" name="oneBox" value="" />
+				</li>
+				<li>
+					<input type="checkbox" name="oneBox" value="" />
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var fanxiBox = $("#oneCheck input:checkbox");
+			fanxiBox.click(function() {
+				if(this.checked || this.checked == 'checked') {
+
+					fanxiBox.removeAttr("checked");
+					//这里需注意jquery1.6以后必须用prop()方法
+					//$(this).attr("checked",true);
+					$(this).prop("checked", true);
+				}
+			});
+		});
+	</script>
+
+</html>

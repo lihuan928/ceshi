@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="text_ajax"></div>
+	</body>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		$.ajax({
+			type: "get",
+			url: "test.json",
+			async: true,
+			dataType: "json",
+			success: function(data) {				
+				for(var i = 0; i < data.length; i++) {
+					var box = '<p>'  + data[i].username + '</p>'
+					$('.text_ajax').append(box)
+				}				
+			}
+		});
+	</script>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="jquery-1.11.1.min.js"></script>
+
+	<body>
+		还可以输入<span id="word">140</span>个字<br />
+		<textarea id="txt" name="" cols="" rows=""></textarea>
+		<script language="javascript" type="text/javascript">
+			$("#txt").keyup(function() {
+				if($("#txt").val().length > 140) {
+					$("#txt").val($("#txt").val().substring(0, 140));
+				}
+				$("#word").text(140 - $("#txt").val().length);
+			});
+		</script>
+	</body>
+
+</html>

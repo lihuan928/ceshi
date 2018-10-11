@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>		
+			#idv1 {
+				background: #fff;
+				display: none;
+				position: absolute;
+				border: 1px solid #AEAEAE;
+				padding: 5px;
+				border-radius: 5px;
+			}
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}			
+			#idv1 li{
+				display: block;
+				color: #325B8E;
+				height: 26px;
+				line-height: 26px;
+				font-size: 14px;
+				cursor: pointer;	
+				padding: 2px 5px;
+			}
+			
+			#idv1 li:hover {
+				color: #57B4E4;
+				border-radius: 5px;
+			}
+		</style>
+		<script>
+			//鼠标右键默认菜单事件
+			document.oncontextmenu = function(ev) {
+				var oevent = ev || event;
+				
+				var div1 = document.getElementById('idv1');
+				//弹出自定义菜单
+				div1.style.display = 'block';
+				//设置自定义菜单的坐标，达到鼠标右键的地方弹出自定义菜单
+				div1.style.left = oevent.clientX + 'px';
+				div1.style.top = oevent.clientY + 'px';
+
+				//屏蔽右键默认菜单
+				return false;
+			}
+			//点击页面任一地方，收起自定义菜单
+			document.onclick = function() {
+				var div1 = document.getElementById('idv1');
+				div1.style.display = 'none';
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="idv1">
+			<ul>
+				<li>右键测试案例</li>
+				<li>右键测试案</li>
+				<li>右键测试</li>
+				<li>右键测</li>
+			</ul>
+		</div>
+	</body>
+
+</html>

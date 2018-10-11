@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		$.ajax({
+			type:"get",
+			url:"http://192.168.0.137:8081/WNXG/serviceBuyRecordController/loadServiceBuyRecord.action?companyCode=ding76e282e4728d069c",
+			data:"",
+			async:true,
+			dataType:"json",
+			success:function(data){
+				var ul = $("#ul ul");
+				for(var i =0;i<data.data.length; i++){			
+					console.log(data.data[i].linkman);					
+					var li = '<li>'+data.data[i].linkman+ '<img src="http://192.168.0.137:8081/WNXG/'+ data.data[i].imgDetails + '"/></li>';
+					ul.append(li);	
+				}			
+			}
+		});
+
+	</script>
+</html>

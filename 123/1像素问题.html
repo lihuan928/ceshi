@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			(function() {
+				var scale = 1.0;
+				if(window.devicePixelRatio === 2) {
+					scale *= 0.5;
+				}
+				if(window.devicePixelRatio === 3) {
+					scale *= 0.333333;
+				}
+				var text = '<meta name="viewport" content="initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', width=device-width, user-scalable=no" />';
+				document.write(text);
+			})();
+		</script>
+	</body>
+
+</html>

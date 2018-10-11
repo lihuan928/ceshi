@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.selected {
+				color: red;
+			}
+		</style>
+		<script src="jquery-1.11.1.min.js"></script>
+		<script>
+			$(function() {
+				$('#checkAll').click(function() {
+					$('input[name="subBox"]').prop('checked', this.checked);
+
+					ChangeSelected();
+				});
+				var $subBox = $('input[name="subBox"]');
+				$subBox.click(function() {
+					$('#checkAll').prop('checked', $subBox.length == $('input[name="subBox"]:checked').length ? true : false);
+
+					ChangeSelected();
+				});
+			});
+
+			function ChangeSelected() {
+				$('[name="subBox"]').each(function() {
+					if(this.checked) {
+						$(this).next('[name="title"]').addClass('selected');
+					} else {
+						$(this).next('[name="title"]').removeClass('selected');
+					}
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<input id="checkAll" type="checkbox" />全选
+			<input name="subBox" type="checkbox" /><span name="title">项1</span>
+			<input name="subBox" type="checkbox" /><span name="title">项2</span>
+			<input name="subBox" type="checkbox" /><span name="title">项3</span>
+			<input name="subBox" type="checkbox" /><span name="title">项4</span>
+		</div>
+	</body>
+
+</html>

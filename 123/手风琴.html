@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				cursor: pointer;
+			}
+			.row{
+				overflow: hidden;
+				width: 1200px;
+				margin: 100px auto 0;
+			}
+			.left{
+				float: left;
+				margin-right: 20px;
+			}
+			.box{				
+				float: left;
+				width: 500px;
+				margin-top: 21px;
+			}
+			.content{
+				display: none;
+				margin-bottom: 20px;
+			}
+			.title{
+				background: url(dz_img1.png) no-repeat 40px center;
+				margin-bottom: 30px;
+			}
+			.title_2{
+				background: url(dz_img2.png) no-repeat 40px center;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="row">
+			<div class="left">
+				<p>啦啦啦</p>
+				<p>哈哈哈:</p>
+			</div>
+			<div class="box">
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>				
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="left">
+				<p>啦啦啦</p>
+				<p>哈哈哈:</p>
+			</div>
+			<div class="box">
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="left">
+				<p>啦啦啦</p>
+				<p>哈哈哈:</p>
+			</div>
+			<div class="box">
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="left">
+				<p>啦啦啦</p>
+				<p>哈哈哈:</p>
+			</div>
+			<div class="box">
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+				<div class="title">详情</div>
+				<p class="content">打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开打雷了的看法离开</p>
+			</div>
+		</div>
+	</body>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		$(function(){
+			$('.content').eq(0).show();
+			$('.title').eq(0).addClass('title_2')
+			$('.title').click(function(){
+				$(this).toggleClass('title_2').next(".content").stop().slideToggle();
+			})
+		})		
+	</script>
+</html>

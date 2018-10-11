@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#aa {
+			height: auto;
+			width: 520px;
+			margin: auto;
+		}
+	</style>
+
+	<body>
+		<p id="aa"></p>
+		<div style="display:none" id="w">
+			贷款减肥快点放假领导看见看见飞机了看得见发快递设计费浪蝶狂蜂卡兰蒂斯减肥的设计费了独守空房绝对是拉开距离点击付款可视对讲福利健康雷锋精神两地分居拉克丝来岁的荆防颗粒的肌肤
+		</div>
+	</body>
+	<script type="text/javascript">
+		var index = 0;
+		var word = document.getElementById("w").innerHTML;
+		console.log(word)	
+		function type() {
+			document.getElementById("aa").innerText = word.substring(0, index++);
+		}
+		setInterval(type, 200);
+	</script>
+
+</html>

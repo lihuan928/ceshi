@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="radio" class="aa" name="b" />
+		<input type="radio" class="ab" name="b" />
+		<input type="radio" class="aa" name="b" />
+		<input type="radio" class="aa" name="b" />
+		<div>1</div>
+		<div class="cc">2</div>
+		<div>3</div>
+	</body>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		$(':radio[name="b"]').click(function() {
+			var index = $(":radio[name='b']").index($(this));
+			if(index == 1){
+				$(".cc").hide();
+			} //选中第2个时，div显示
+				
+			else {
+				$('.cc').show();
+			}//当被选中的不是第2个时，div隐藏
+				
+		})
+	</script>
+
+</html>

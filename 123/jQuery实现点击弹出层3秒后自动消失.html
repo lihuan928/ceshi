@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery实现点击弹出层3秒后自动消失</title>
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<style type="text/css">
+			#dianji {
+				text-align: center;
+				margin-top: 50px;
+				font-size: 30px;
+				color: #000;
+				display: block;
+				font-family: "华文细黑";
+			}
+			
+			#disappare {
+				border: 3px solid #ccc;
+				border-radius: 5px;
+				background: #fff;
+				font-size: 20px;
+				width: 300px;
+				height: 250px;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin: -125px 0 0 -150px;
+			}
+			
+			#disappare h2 {
+				height: 35px;
+				line-height: 35px;
+				background: #ddd;
+				text-indent: 5px;
+			}
+			
+			#disappare p {
+				padding: 5px;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="content">
+			<a id="dianji">点击</a>
+			<div id="disappare" style="display:none;">
+				<h2>标题</h2>
+				<p>3秒后我会自动消失3秒后我会自动消失</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$("#dianji").click(function() {
+					$("#disappare").show().delay(3000).fadeOut(300);
+				});
+			})
+		</script>
+	</body>
+
+</html>

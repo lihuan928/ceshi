@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+			<li>1</li>
+			<li>1</li>
+			<li>1</li>
+			<li>1</li>
+		</ul>
+	</body>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		
+		$(function() {
+			var testJson = {
+				"name": "张三",
+				"age": 12
+			}
+			console.log(testJson.name);
+			
+			var testJson2 = "{'name':'张三'}"
+			console.log(testJson2);
+
+			var testJson3 = eval('(' + testJson2 + ')')
+			console.log(testJson3.name);
+			
+			$('ul>li').click(function(){
+				var index = $(this).prevAll().length;
+				console.log(index)
+			})
+		})
+		
+	</script>
+
+</html>

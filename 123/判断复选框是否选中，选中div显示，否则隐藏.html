@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input id="checkboxN" value="1" type="checkbox">
+
+		<div style="display: none" id="saveSearchIdd">
+			ddddd
+		</div>
+		<input id="checkboxN2" value="1" type="checkbox">
+
+		<div style="display: none" id="saveSearchIdd2">
+			sssss
+		</div>
+		
+	</body>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#checkboxN").click(function() {
+				if($("#checkboxN").is(":checked")) {
+					$("#saveSearchIdd").css("display", "block");
+				} else {
+					$("#saveSearchIdd").css("display", "none");
+				}
+			});
+			$("#checkboxN2").click(function() {
+				if($("#checkboxN2").is(":checked")) {
+					$("#saveSearchIdd2").css("display", "block");
+				} else {
+					$("#saveSearchIdd2").css("display", "none");
+				}
+			});
+		})
+	</script>
+
+</html>

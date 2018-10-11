@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*input::-webkit-datetime-edit{
+				width: 200px;
+				height: 300px;
+			} */
+			/*input::-webkit-datetime-edit-fields-wrapper{
+				width: 50px;
+				height: 30px;
+			}*/
+			input::-webkit-datetime-edit-text{
+				 color: red;
+				  padding: 0 5px; 
+			}
+			/*input::-webkit-datetime-edit-day-field { color: green; } 
+			input::-webkit-datetime-edit-fields-wrapper{
+				width: 350px;
+				height: 30px;
+				line-height: 20px;
+				display: block;
+			}*/
+			input[type=date]::-webkit-inner-spin-button { visibility: hidden; } 
+			input[type=date]::-webkit-clear-button{
+				visibility: hidden;
+			}
+			@keyframes name{
+				0{}
+				100%{}
+			}
+		</style>
+	</head>
+	<body>
+		<input type="date"  value="2017-07-03" />
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span id="show">Loading...</span>
+<script type="text/javascript">
+    function count_down(o) {
+        var datatime = /^[\d]{4}-[\d]{1,2}-[\d]{1,2}( [\d]{1,2}:[\d]{1,2}(:[\d]{1,2})?)?$/ig, str = '', conn, s;
+        if (!o.match(datatime)) {
+            alert('参数格式为2020-01-01[ 01:01[:01]].\r其中[]内的内容可省略');
+            return false;
+        }
+        var sec = (new Date(o.replace(/-/ig, '/')).getTime() - new Date().getTime()) / 1000;
+        if (sec > 0) {
+            conn = '还有';
+        } else {
+            conn = '已过去';
+            sec *= -1;
+        }
+        s = {'小时': sec / 3600, '分': sec / 60 % 60};
+        for (i in s) {
+            if (Math.floor(s[i]) > 0) str += Math.floor(s[i]) + i;
+        }
+        if (Math.floor(sec) == 0) {
+            str = '0秒';
+        }
+        document.getElementById('show').innerHTML = '距离<u>' + o + '</u>' + conn + '<u>' + str + '</u>';
+        setTimeout(function () {
+            count_down(o)
+        }, 1000);
+    }
+
+    count_down('2018-5-26');
+</script>
+</body>
+</html>

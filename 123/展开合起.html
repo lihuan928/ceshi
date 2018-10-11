@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" value="展开" class="btn" />
+		<div style="display: none;width: 500px;height: 300px;border: 1px solid #000;" class="div">skdjfkdjkfjdkjfkjdf</div>
+	</body>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		$('.btn').click(function(){
+			$('.div').stop().slideToggle();
+			$(this).val($(this).val()=="展开"?"合起":"展开");			
+		})
+	</script>
+</html>

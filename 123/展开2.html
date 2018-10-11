@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Jquery文字内容过多部分折叠</title>
+		<style>
+			
+		</style>
+		<script src="jquery-1.11.1.min.js"></script>
+	</head>
+
+	<body>
+		<div class="panel-body">
+			<h4>应用描述:</h4>
+			<div id="Desc">
+				<p>1）凭剩余时长可免费接入移动CMCC、电信ChinaNet、联通ChinaUnicom等专属WiFi热点</p>
+				<p>2）本软件为自动认证并连接，无需输入手机号码/帐号密码即可免费使用运营商WiFi</p>
+				<p>3）自动认证过程，可能需要极少的数据流量，请确保数据流量已开启</p>
+				<p>4）凭剩余时长可免费接入移动CMCC、电信ChinaNet、联通ChinaUnicom等专属WiFi热点</p>
+				<p>5）本软件为自动认证并连接，无需输入手机号码/帐号密码即可免费使用运营商WiFi</p>
+				<p>6）自动认证过程，可能需要极少的数据流量，请确保数据流量已开启</p>
+				<p>7）凭剩余时长可免费接入移动CMCC、电信ChinaNet、联通ChinaUnicom等专属WiFi热点</p>
+				<p>8）本软件为自动认证并连接，无需输入手机号码/帐号密码即可免费使用运营商WiFi</p>
+				<p>9）自动认证过程，可能需要极少的数据流量，请确保数据流量已开启</p>
+			</div>
+			<div id="expand">
+				<a>收起</a>
+			</div>
+	</body>
+
+</html>
+<script>
+	$(document).ready(function(){  
+        var o = $("#Desc").html();  
+        var short = o.substring(0, 210);  
+        if (o.length > 210) {  
+            $("#expand").find("a").html("展开");  
+            $("#Desc").html(short + "......");  
+        }  
+        $("#expand").click(function(){    
+            if ($("#expand").find("a").html() == "展开") {  
+                $("#Desc").html(o);  
+                $("#expand").find("a").html("收起")  
+            } else {  
+                $("#Desc").html(short + "......");  
+                $("#expand").find("a").html("展开");  
+            }  
+        });  
+});  
+</script>

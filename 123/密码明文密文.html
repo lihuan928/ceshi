@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script src="jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+		<style type="text/css">
+			input {
+				display: inline;
+				width: 180px;
+				height: 25px;
+			}
+			
+			.aaa {
+				position: absolute;
+				background: url(dz_img1.png) no-repeat;
+				top: 0;
+				right: 0;
+				width: 25px;
+				height: 25px;
+				cursor: pointer;
+			}
+			
+			.bbb {
+				position: absolute;
+				background: url(dz_img2.png) no-repeat;
+				top: 0;
+				right: 0;
+				width: 25px;
+				height: 25px;
+				cursor: pointer;
+			}
+			
+			.box {
+				position: relative;
+				width: 180px;
+				height: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		账号:<input type="text" name="text" id="text" value="" /></br>
+
+		密码
+		<div class="box">
+			<input type="password" name="password" id="password" value="" />
+			<span class="aaa"></span>
+		</div>
+
+		<script type="text/javascript">
+			$(function() {
+				$('.aaa').click(function() {
+					$(this).toggleClass('bbb');
+					var a = $('#password').attr('type');
+					if($(this).is('.bbb')) {
+						//判断获取的type类型是否是password
+						if(a = password) {
+							//给input里边ID等于password的type类型变为text
+							$('#password').attr('type', 'text');
+							//	alert("密码显示出来");
+						}
+					} else {
+						//判断获取的type类型是否是password
+						if(a != password) {
+							//给input里边ID等于password的type类型变为password
+							$('#password').attr('type', 'password');
+							//	alert("密码变成。。。了");
+						}
+					}
+				})
+			});
+		</script>
+	</body>
+
+</html>
