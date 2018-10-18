@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			String.prototype.Right = function(i) { //为String对象增加一个Right方法
+				return this.slice(this.length, this.length - i); //返回值为 以“该字符串长度减i”为起始 到 该字符串末尾 的截取字符串
+			};
+			var text = "abcde";
+			alert(text.Right(3)); //截取字符串的右三位
+		</script>
+	</body>
+
+</html>
