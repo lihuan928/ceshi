@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [0,1,2,3,4];
+			function contains(arrays, obj) {
+			    var i = arrays.length;
+			    while (i--) {
+			        if (arrays[i] === obj) {
+			            return i;
+			        }
+			    }
+			    return false;
+			}
+			console.log(contains(arr,4))
+		</script>
+	</body>
+</html>
