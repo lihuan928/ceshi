@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*function uniq(array){
+			    var temp = []; //一个新的临时数组
+			    for(var i = 0; i < array.length; i++){
+			        if(temp.indexOf(array[i]) == -1){
+			            temp.push(array[i]);
+			        }
+			    }
+			    return temp;
+			}
+			var aa = [1,2,2,4,9,6,7,5,2,3,5,6,5];
+			console.log(uniq(aa));*/
+			
+			var aa = [1,2,2,4,9,6,7,5,2,3,5,6,5];
+			var temp = []; //一个新的临时数组
+			    for(var i = 0; i < aa.length; i++){
+			        if(temp.indexOf(aa[i]) == -1){
+			            temp.push(aa[i]);			            
+			        }
+			    }
+			aa = temp;
+			console.log(aa);
+		</script>
+	</body>
+</html>
