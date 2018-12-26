@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8"> 
+        <title>append</title> 
+        <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.js"></script>
+        <style>
+            *{ padding:0;margin:0;font-size:14px;box-sizing:border-box; }
+            .a{ padding: 24px;border: 1px solid #847AE8;height:640px;overflow-x:hidden;overflow-y:auto; }
+            .a p{ color: #f0f; }
+        </style>
+    </head>
+    <body>
+        <button class="add">点击添加</button>
+        <div class="a"></div>
+    </body>
+    <script type="text/javascript">
+        var lis = '<li><span>' + featureName + '</span><span id="' + farmId + '"></span></li>';
+		if(!$('.ula').find('span[id=' + farmId + ']').length){
+            $('.ula').append(lis);
+        }else{
+        	alert('已选择该建筑物')
+        }
+    </script>
+</html>
