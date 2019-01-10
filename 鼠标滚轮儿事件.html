@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script>
+			function onMouseScroll(e) {
+				e.preventDefault();
+				var wheel = e.originalEvent.wheelDelta || -e.originalEvent.detail;
+				var delta = Math.max(-1, Math.min(1, wheel));
+				if (delta < 0) { 
+					alert("下")
+				} else { 
+					alert("上")
+				}
+			}
+			$(document).on('mousewheel DOMMouseScroll', onMouseScroll); 						
+		</script>
+	</body>
+</html>
