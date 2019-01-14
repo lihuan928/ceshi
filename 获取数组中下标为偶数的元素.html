@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var isEven = i => i % 2 === 0; 
+			var evens = arr => arr.filter(
+				(subArr, idx) => isEven(idx)
+			); 
+			var flat = arr => arr.reduce((acc, cur) => {
+				return acc.concat(cur)
+			}, [])
+			var getAllEvens = arr => {
+				let temp = evens(arr);
+				return flat(temp);
+			}
+			var testArr = ['这里', '是', '0', '号', '数组', '当然是偶数'];
+			var res = getAllEvens(testArr); 
+			console.log(res)	
+		</script>
+	</body>
+</html>
