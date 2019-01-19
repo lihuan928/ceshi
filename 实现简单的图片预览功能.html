@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="">
+		<form>
+			<input type="file" name="image" />
+		</form>
+		<script type="text/javascript">
+			var x = new FileReader;
+			document.forms[0].elements[0].onchange = function() {
+				x.readAsDataURL(this.files[0]);
+			}
+			x.onloadend = function() {
+				document.images[0].src = this.result;
+			}
+		</script>
+	</body>
+</html>
