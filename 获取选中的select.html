@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<select>
+			<option value="0">一级会员</option>
+			<option value="1">二级会员</option>
+			<option value="2">三级会员</option>
+			<option value="3">四级会员</option>
+		</select>
+		<div class="test"></div>
+		<script src="123/jquery-1.11.1.min.js"></script>
+		<script>
+			var youhuiArr = ["一级会员优惠90%", "二级会员优惠70%", "三级会员优惠50%", "四级会员优惠0%"];
+			$('select').change(function(){
+				var optionVal = this.value;
+				$.each(youhuiArr,function(index,value) {
+					if(index == optionVal){
+						$('.test').text(value)
+					}
+				});
+			})
+		</script>
+	</body>
+</html>

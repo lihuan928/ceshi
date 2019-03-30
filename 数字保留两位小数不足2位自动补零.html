@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Test</title>
+	</head>
+	<script type="text/javascript">
+		function formatDecimal(num, decimal) {
+			num = num.toString()
+			let index = num.indexOf('.')
+			if (index !== -1) {
+				num = num.substring(0, decimal + index + 1)
+			} else {
+				num = num.substring(0)
+			}
+			return parseFloat(num).toFixed(decimal)
+		}
+		console.log(formatDecimal(23.45678, 2))  //显示23.45
+		console.log(formatDecimal(100, 2))  //显示23.00
+		
+	</script>
+	<body>
+
+	</body>
+</html>
