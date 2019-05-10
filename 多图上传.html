@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+		<input type="file" name="files" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp"
+		 multiple />
+		<button id="ok" type="button">提交</button>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script>
+			$('#ok').click(function() {
+				var file = document.getElementById("file");
+				var formData = new FormData();
+				for (var i = 0; i < file.files.length; i++) {
+					formData.append('files', file.files[i]);
+				}
+				$.ajax({
+					type: "post",
+					cache: false,
+					processData: false,
+					contentType: false,
+					mimeType: "multipart/form-data",
+					data: formData,
+					url: "https://www.xttel.cn/towerpower/f/goods/uploadimages",
+					success: function(data) {
+						var objData = $.parseJSON(data);
+						$('#box').empty();
+						for (var im = 0; im < objData.data.length; im++) {
+							var ingbox = '<img src="' + objData.data[im] + '">';
+							$('#box').append(ingbox)
+						}
+					},
+					error: function(data) {
+						alert("图片上传失败");
+					}
+				})
+
+			})
+		</script>
+	</body>
+</html>

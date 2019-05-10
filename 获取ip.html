@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+	</body>
+	<script type="text/javascript">
+		//获取本机的网络ip地址
+		function jsonpCallback(res) {
+			var ip = res.Ip; // ip地址
+			var aa = res.Isp.split("市");
+			var isp = aa[0]; // ip省份
+			alert(ip);
+		}
+
+		function getIntnetIP() {
+			var JSONP = document.createElement("script");
+			JSONP.type = "text/javascript";
+			JSONP.src = "http://chaxun.1616.net/s.php?type=ip&v=&output=json&callback=jsonpCallback";
+			document.getElementsByTagName("head")[0].appendChild(JSONP);
+		}
+		getIntnetIP();
+	</script>
+</html>

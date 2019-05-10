@@ -6,21 +6,22 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			var arr1=[1,2,3,4,1,2];
-			function seachNum(arr){
-				var obj={},
-				result=[];
-				for(var i=0;i<arr.length;i++){
-					
-					if(obj[arr[i]]){
+			var arr1 = [1, 2, 3, 4, 1, 2];
+
+			function seachNum(arr) {
+				var obj = {},
+					result = [];
+				for (var i = 0; i < arr.length; i++) {
+
+					if (obj[arr[i]]) {
 						obj[arr[i]]++
-					}else{
-						obj[arr[i]]=1;
+					} else {
+						obj[arr[i]] = 1;
 					}
-					
+
 				}
-				for(var prop in obj){
-					if(obj[prop]==1){
+				for (var prop in obj) {
+					if (obj[prop] == 1) {
 						result.push(prop);
 					}
 				}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="pic_yyzz1 fl" id="photo">
+			<input type="file" id="file" name="files" class="photo" accept="image/*">
+		</div>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script src="js/jquery.imagecompress.js"></script>
+		<script>
+			var imgArr = [];
+			$('#file').change(function() {
+				var file = document.getElementById("file");
+				var formData = new FormData();
+				for (var i = 0; i < file.files.length; i++) {
+					formData.append('files', file.files[i]);
+				}
+				$.ajax({
+					type: "post",
+					cache: false,
+					processData: false,
+					contentType: false,
+					mimeType: "multipart/form-data",
+					data: formData,
+					url: "https://www.xttel.cn/towerpower/f/goods/uploadimages",
+					success: function(data) {
+						imgArr.push(data.data)
+					},
+					error: function() {
+						alert("error");
+					}
+				})
+			});
+			$('#file').imageCompress({
+				'quality': 50,
+				'onloadStart': function(result){
+					console.log('读取图片开始'+result);
+				},
+				'onloadEnd': function(result){
+					console.log('读取图片结束'+result);
+				},
+				'oncompressStart': function(result){
+					console.log('压缩图片开始'+result);
+				},
+				'oncompressEnd': function(result){
+					console.log('压缩图片结束'+result);
+					$("#photo").append(result);
+					$('#photo').find('img').addClass('pimg');
+				}
+			});
+		</script>
+	</body>
+</html>
