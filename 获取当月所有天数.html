@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*获取一个月的天数 */
+			function getCountDays() {
+				var curDate = new Date();
+				/* 获取当前月份 */
+				var curMonth = curDate.getMonth();
+				/*  生成实际的月份: 由于curMonth会比实际月份小1, 故需加1 */
+				curDate.setMonth(curMonth + 1);
+				/* 将日期设置为0, 这里为什么要这样设置, 我不知道原因, 这是从网上学来的 */
+				curDate.setDate(0);
+				/* 返回当月的天数 */
+				return curDate.getDate();
+			}
+			var day = getCountDays();
+
+			function getEvryDay() {
+				var dayArry = [];
+				for (var k = 1; k <= day; k++) {
+					dayArry.push(k);
+				}
+				return dayArry;
+			};
+			var allDay = getEvryDay()
+			var oneWeak = allDay.slice(0,7);
+			var twoWeak = allDay.slice(7,14);
+			var threeWeak = allDay.slice(14,21);
+			var fourWeak = allDay.slice(21,allDay.length);
+			console.log('第一周====> ' + oneWeak) //第一周
+			console.log('第二周====> ' + twoWeak) //第二周
+			console.log('第三周====> ' + threeWeak) //第三周
+			console.log('最后====> ' + fourWeak) //最后
+		</script>
+	</body>
+</html>
