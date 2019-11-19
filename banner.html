@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css" />
+		<style type="text/css">
+			.banner_index .swiper-slide {
+				position: relative;
+			}
+
+			.banner_index .swiper-slide img {
+				width: 100%;
+			}
+
+			.banner_index .swiper-slide video {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				transform: translateY(-50%,-50%);
+				object-fit: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<!--图片轮播-->
+			<div class="banner">
+				<div class="swiper-container banner_index">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide ban_video" data-video="images/1.mp4">
+							<img src="images/a3.png" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="images/a10.png" alt="">
+						</div>
+						<div class="swiper-slide">
+							<img src="images/a2.png" alt="">
+						</div>
+						<div class="swiper-slide ban_video" data-video="images/2.mp4">
+							<img src="images/a4.png" alt="">
+						</div>
+					</div>
+					<!--<div class="swiper-button-prev"></div>
+	        <div class="swiper-button-next"></div>-->
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</div>
+		<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.1/js/swiper.js"></script> -->
+		<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//有loop:true时，11 22 44 33，首先执行的是onSlideChangeEnd
+			//没有loop:true时，22 44 33，onSlideChangeEnd不会被首先执行
+			$(document).ready(function() {
+				var swiperFlag = false;
+				var mySwiper = new Swiper('.banner_index', {
+					// autoplay: 5000, //可选选项，自动滑动
+					// 4.x.x
+					autoplay: {
+						delay: 2000,
+						disableOnInteraction: true
+					},
+					autoHeight: true,
+					loop: true,
+					//		pagination : '.banner_index .swiper-pagination',
+					//		prevButton: '.banner_index .swiper-button-prev',
+					pagination: '.banner_index .swiper-pagination',
+					paginationClickable: true,
+					// 3.x.x
+					// // onSlideChangeEnd: function(swiper) {
+					// 	console.log(swiper.activeIndex);
+					// 	//			console.log(11);
+					// 	var _this = $('.banner_index .swiper-slide').eq(swiper.activeIndex);
+					// 	if (!swiperFlag) {
+					// 		swiperFlag = true;
+					// 	} else {
+					// 		videoSelect(_this);
+					// 		console.log(23456778)
+					// 	}
+					// },
+					on: {
+						// 4.x.x
+						transitionEnd: function(swiper) {
+							// onSlideChangeEnd: function(swiper) {
+							console.log(this.activeIndex);
+							//			console.log(11);
+							var _this = $('.banner_index .swiper-slide').eq(this.activeIndex);
+							if (!swiperFlag) {
+								swiperFlag = true;
+							} else {
+								videoSelect(_this);
+								// console.log(23456778)
+							}
+						},
+					}
+				})
+				
+				mySwiper.el.onmouseenter = function(){
+					mySwiper.autoplay.stop();
+					
+					
+				}
+				mySwiper.el.onmouseleave = function(){
+					mySwiper.autoplay.start();
+					
+				}
+				
+				//	console.log(22);
+				videoSelect($('.banner_index .swiper-slide.swiper-slide-active'));
+				// 	console.log(33);
+				function videoSelect(_this) {
+					var flag = true;
+					var cc = _this.hasClass('ban_video');
+					if (cc) {
+						//	    	console.log(44);
+						// mySwiper.stopAutoplay();
+						// 4.x.x
+						mySwiper.autoplay.stop();
+						var videos =
+							'<video src="' + _this.data('video') + '" autoplay="autoplay" muted class="vv" style="display:none;"></video>';
+						_this.append(videos);
+
+						var aaa = setInterval(function() {
+							console.log($(".vv").get(0).duration)
+							if (!isNaN($(".vv").get(0).duration) && flag) {
+								clearInterval(aaa);
+								flag = false;
+								setTimeout(function() {
+									_this.find('video').css("display", "block");
+								}, 500)
+							}
+						}, 10);
+
+						_this.find('video').bind('ended', function() {
+							mySwiper.slideNext();
+							// mySwiper.startAutoplay();
+							// 4.x.x
+							mySwiper.autoplay.start();
+						});
+					} else {
+						$('.vv').remove();
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

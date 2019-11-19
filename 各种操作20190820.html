@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="num" style="cursor: pointer;">0</div>
+		<ul class="ulone">
+			<li class="sel">
+				<span>倒海翻江时代峻峰哈酒1</span>
+				<input class="secbtn" type="button" value="添加">
+				<input type="hidden" value="1" class="hint"> <!-- 可能要用到的标识 -->
+				<input type="hidden" value="是" class="okclick"> <!-- 是否可以点击 -->
+				<input type="hidden" value="1" class="addindex"> <!-- 第几个li,循环li的时候value写[i] -->
+			</li>
+			<li class="sel">
+				<span>倒海翻江时代峻峰哈酒2</span>
+				<input class="secbtn" type="button" value="添加">
+				<input type="hidden" value="2" class="hint">
+				<input type="hidden" value="是" class="okclick">
+				<input type="hidden" value="2" class="addindex">
+			</li>
+			<li class="sel">
+				<span>倒海翻江时代峻峰哈酒3</span>
+				<input class="secbtn" type="button" value="添加">
+				<input type="hidden" value="3" class="hint">
+				<input type="hidden" value="是" class="okclick">
+				<input type="hidden" value="3" class="addindex">
+			</li>
+			<li class="sel">
+				<span>倒海翻江时代峻峰哈酒4</span>
+				<input class="secbtn" type="button" value="添加">
+				<input type="hidden" value="4" class="hint">
+				<input type="hidden" value="是" class="okclick">
+				<input type="hidden" value="4" class="addindex">
+			</li>
+		</ul>
+		<div class="adddiv" style="display: none;">
+			<div class="addData"></div>
+			<input type="button" value="对比" class="bijiao">
+		</div>
+		<script src="123/jquery-1.11.1.min.js"></script>
+		<script>
+			$(function() {
+				//添加
+				$('.secbtn').click(function() {
+					if ($(this).siblings('.okclick').val() == '是') {
+						var text = $(this).siblings('span').text();
+						var hint = $(this).siblings('.hint').val();
+						var addli = $(this).siblings('.addindex').val();
+						$(this).siblings('.okclick').addClass('okclick' + addli);
+						var main = '<div class="lidata"><input class="sechec" type="checkbox"><span>' + text +
+							'</span><input class="del" type="button" value="删除"><input type="hidden" value="' + hint +
+							'"><input type="hidden" class="delli" value="' + addli + '"></div>';
+						$('.addData').append(main);
+						$(this).siblings('.okclick').val('否');
+						var length = $('.addData>div').length;
+						$('.num').text(length)
+					} else {
+						alert('不可重复添加！')
+					}
+				});
+
+				//数字
+				$('.num').click(function() {
+					if ($(this).text() !== '0') {
+						$('.adddiv').stop().toggle()
+					} else {
+						alert('无数据！')
+					}
+				});
+
+				//删除 
+				$('.addData').on('click', '.del', function() {
+					if($(this).siblings('.sechec').is(":checked") == true){
+						alert('请取消选择再删除！')
+					}else{
+						$(this).parent().remove();
+						var length = $('.addData>div').length;
+						$('.num').text(length);
+						var index = $(this).siblings('.delli').val();
+						$('.okclick' + index).val('是')
+					}
+				});
+
+				//对比
+				$('.bijiao').click(function() {
+					var chk = $('.lidata input[type="checkbox"]');
+					var len = chk.filter(":checked").length;
+					if (len < 2) {
+						alert('请选择两项进行对比！')
+					} else if (len == 2) {
+						alert('成功对比！')
+					}
+				});
+				$('.addData').on('click', '.sechec', function() {
+					var chk = $('.lidata input[type="checkbox"]');
+					var len = chk.filter(":checked").length;
+					if($(this).is(":checked")){
+						if(len <= 2){
+							$(this).attr('name','chc')
+						}
+						if(len == 2){
+							chk.each(function(){
+								if($(this).attr('name') == undefined){
+									$(this).attr('disabled','disabled')
+								}
+							})
+						}
+					}else{
+						if(len < 2){
+							chk.removeAttr('disabled')
+						}
+						$(this).removeAttr('name')
+					}
+				});
+			})
+		</script>
+	</body>
+</html>

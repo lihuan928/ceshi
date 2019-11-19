@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" />
+		<title>lzj</title>
+	</head>
+	<body>
+		<script src="js/jquery.1.11.3.min.js" language="JavaScript"></script>
+		<script>
+			function contains(arrays, obj) {
+				var i = arrays.length;
+				while (i--) {
+					if (arrays[i] === obj) {
+						return i;
+					}
+				}
+				return false;
+			}
+
+			function compare(a1, b1, flag) {
+				var a = d = a1;
+				var b = e = b1;
+				var c = [];
+				var addstr = [];
+				var dels = [];
+				a.sort();
+				b.sort();
+				var i = 0;
+				var j = 0;
+				while (i < a.length && j < b.length) {
+					if (a[i] < b[j]) {
+						c.push(a[i]);
+						i++;
+					} else if (b[j] < a[i]) {
+						c.push(b[j]);
+						j++;
+					} else {
+						i++;
+						j++;
+					}
+				}
+				while (i < a.length) {
+					c.push(a[i]);
+					i++;
+				}
+				while (j < b.length) {
+					c.push(b[j]);
+					j++;
+				}
+				if (!flag) {
+					for (var i = 0; i < c.length; i++) {
+						for (var j = 0; j < e.length; j++) {
+							if (e[j] == c[i]) {
+								addstr.push(e[j]);
+							}
+						}
+					}
+					return addstr;
+				} else {
+					for (var i = 0; i < c.length; i++) {
+						for (var j = 0; j < d.length; j++) {
+							if (d[j] == c[i]) {
+								dels.push(d[j]);
+							}
+						}
+					}
+					return dels;
+				}
+			}
+			var arr1 = ["899SSDJH-HJHJH88787278","898","088","aaa","bbb","aaa"];
+			var arr2 = ["898","899SSDJH", "566",  "088", "nn"];
+			var addstr = compare(arr1, arr2, 1); //flag传1即arr1比arr2多的部分，0反之
+			console.log(addstr)
+			//console.log(contains(arr1,addstr[0]))
+			
+		</script>
+	</body>
+</html>

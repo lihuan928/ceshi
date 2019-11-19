@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+	<body>
+		<script>
+			var a = [
+				{
+					"id": "6dd51f71-f054-49de-913c-d03387b8bbde",
+					"type": "球机",
+					"cameraHpRoll": {
+						"heading": "3",
+						"pitch": "3",
+						"roll": 0
+					}
+				},
+				{
+					"id": "d865d3b6-edef-4ca5-a3c6-a990154616d3",
+					"type": "球机",
+					"cameraHpRoll": {
+						"heading": "90",
+						"pitch": "30",
+						"roll": 0
+					}
+				}
+			];
+			var b = [{
+					"id": "286ed80d-facc-42cd-a700-5a0795c68fea",
+					"type": "球机",
+					"cameraHpRoll": {
+						"heading": "1",
+						"pitch": "1",
+						"roll": 0
+					}
+				},
+				{
+					"id": "6dd51f71-f054-49de-913c-d03387b8bbde",
+					"type": "球机",
+					"cameraHpRoll": {
+						"heading": "3",
+						"pitch": "3",
+						"roll": 0
+					}
+				},
+				{
+					"id": "d865d3b6-edef-4ca5-a3c6-a990154616d3",
+					"type": "球机",
+					"cameraHpRoll": {
+						"heading": "90",
+						"pitch": "30",
+						"roll": 0
+					}
+				}
+			]
+
+			function filtersArr(array, array2,mark) {
+				var result = [];
+				for (var i = 0; i < array2.length; i++) {
+					var obj = array2[i];
+					var num = obj.id;
+					var flag = false;
+					for (var j = 0; j < array.length; j++) {
+						var aj = array[j];
+						var n = aj.id;
+						if (n == num) {
+							flag = true;
+							break;
+						}
+					}
+					if(mark == 1){
+						if (!flag) {
+							result.push(obj);
+						}
+					}else if(mark == 2){
+						result.push(obj);
+					}
+					
+				}
+				return result;
+			}
+			console.log(filtersArr(a, b,1))
+			console.log(filtersArr(b, a,2))
+
+		</script>
+	</body>
+</html>

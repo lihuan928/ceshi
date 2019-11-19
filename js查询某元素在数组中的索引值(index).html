@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" />
+		<title>lzj</title>
+	</head>
+	<body>
+		<script src="js/jquery.1.11.3.min.js" language="JavaScript"></script>
+		<script>
+			// 查询元素在数组中的索引值
+			Array.prototype.indexValue = function (arr) {
+			  for (var i = 0; i < this.length; i++) {
+			    if (this[i] == arr) {
+			      return i;
+			    }
+			  }
+			}
+			
+			// 创建数组arr
+			let arr = [1, 2, 3, 4, 5];
+			 
+			// 得到1在arr数组中的下标0
+			arr.indexValue(4); // 0
+			console.log(arr.indexValue(4))
+		</script>
+	</body>
+</html>
