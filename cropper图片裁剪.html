@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<title>裁剪图片</title>
+		<link href="css/cropper.min.css" rel="stylesheet">
+		<style type="text/css">
+			.cropper-bg{
+				background: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-2">
+					<img src="img/1.jpg"  id="tailoringImg">
+					<!-- <div id="tailoringImg" style="width: 300px;height: 300px;background: red;"></div> -->
+				</div>
+				<div>
+					<div class="cropper-rotate-btn">清除</div>
+				</div>
+			</div>
+		</div>
+		<!-- Scripts -->
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script src="js/cropper.min.js"></script>
+		<script>
+			var imgElement = document.getElementById('tailoringImg');
+			var options = {
+				aspectRatio: 1 / 1, //默认比例
+				//preview: '.previewImg', //预览视图
+				autoCrop: false,
+				guides: false, //裁剪框的虚线(九宫格)
+				movable: false, //是否允许移动图片
+				dragCrop: true, //是否允许移除当前的剪裁框，并通过拖动来新建一个剪裁框区域
+				movable: true, //是否允许移动剪裁框
+				resizable: true, //是否允许改变裁剪框的大小
+				zoomable: false, //是否允许缩放图片大小
+				mouseWheelZoom: false, //是否允许通过鼠标滚轮来缩放图片
+				touchDragZoom: false, //是否允许通过触摸移动来缩放图片
+				rotatable: false, //是否允许旋转图片
+			}
+			var cropper = new Cropper(imgElement, options)
+			//旋转
+			$(".cropper-rotate-btn").on("click", function() {
+				console.log(cropper.getData())
+			});
+		</script>
+	</body>
+</html>

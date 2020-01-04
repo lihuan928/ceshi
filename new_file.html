@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <title></title>
+ <style>
+     .button {
+         width: 200px;
+         height: 200px;
+         background-color: antiquewhite;
+         margin: 20px;
+         text-align: center;
+         line-height: 200px;
+     }
+ </style>
+</head>
+<body>
+ <div class="button">Button</div>
+ <script>
+     "use strict";
+     var btn = document.querySelector('.button');
+     document.addEventListener('keyup', function (event) {
+         console.log(String.fromCharCode(event.keyCode));
+     }, false);
+     var ev = new KeyboardEvent('keyup', {
+         keyCode: 67
+     });
+     document.dispatchEvent(ev);
+ </script>
+</body>
+</html>

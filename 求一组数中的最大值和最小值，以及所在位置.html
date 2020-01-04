@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script>
+			// 定义变量
+
+			var numArr = [1, 99, 10010,88, -110, 77, 89, 10010, -100,10010,-300];
+			var maxValue = numArr[0],
+				minValue = numArr[0]; //姑且先定义 第一个索引为最大值和最小值
+			var maxIndex = 0;
+			minIndex = 0; // 姑且将第一个索引定位最大和最小 
+
+			//遍历整个数组，并且找出  最大 最小值
+			for (i = 0; i < numArr.length; i++) {
+				if (numArr[i] > maxValue) {
+					maxValue = numArr[i];
+					maxIndex = i;
+				}
+
+				if (numArr[i] < minValue) {
+					minValue = numArr[i];
+					minIndex = i;
+				}
+			}
+
+			console.log(maxValue);
+			console.log(minValue);
+			console.log(maxIndex);
+			console.log(minIndex);
+		</script>
+	</body>
