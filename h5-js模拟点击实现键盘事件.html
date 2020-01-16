@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>h5模拟键盘</title>
+	<link rel="stylesheet" href="">
+	<script src="js/jquery.1.11.3.min.js"></script>
+	<script src="js/jquery.simulate.min.js"></script>
+</head>
+<body>
+	<button class="key-a">a</button>
+	<button class="key-s">s</button>
+	<button class="key-d">d</button>
+	<button class="key-c">c</button>
+	<script>
+		$(function(){
+			//监听键盘按下的事件
+			$(document).on('keydown',function(e){
+				console.log(e)
+			})
+			//到这里，按下键盘的按键就能看到对应的效果了
+			//接下来初始化按钮事件绑定,就可以通过点击按钮实现模拟按下键盘按键了
+			initKeyBoardEvents();
+		})
+		function initKeyBoardEvents() {
+	        var A = this.canvas || document
+	            , e = jQuery.simulate.keyCode;
+	        function t(e, t, n, r, o) {
+	            $(e).on(t, function(t) {
+	                /*"keydown" == n ? $(e).addClass("active") : $(e).removeClass("active");*/
+	                if("keydown" == n){
+                        $(A).simulate(n, {
+                            keyCode: r,
+                            key: o
+                        })
+	                }
+	            })
+	        }
+	        function n(A) {
+	            var n = [{
+	                selector: ".left",
+	                code: e.LEFT,
+	                key: "ArrowLeft"
+	            }, {
+	                selector: ".right",
+	                code: e.RIGHT,
+	                key: "ArrowRight"
+	            }, {
+	                selector: ".up",
+	                code: e.UP,
+	                key: "ArrowUp"
+	            }, {
+	                selector: ".down",
+	                code: e.DOWN,
+	                key: "ArrowDown"
+	            }, {
+	                selector: ".space",
+	                code: e.SPACE,
+	                key: " "
+	            }, {
+	                selector: ".key-q",
+	                code: e.Q,
+	                key: "q"
+	            }, {
+	                selector: ".key-w",
+	                code: e.W,
+	                key: "w"
+	            }, {
+	                selector: ".key-e",
+	                code: e.E,
+	                key: "e"
+	            }, {
+	                selector: ".key-a",
+	                code: e.A,
+	                key: "a"
+	            }, {
+	                selector: ".key-s",
+	                code: e.S,
+	                key: "s"
+	            }, {
+	                selector: ".key-d",
+	                code: e.D,
+	                key: "d"
+	            }, {
+	                selector: ".key-z",
+	                code: e.Z,
+	                key: "z"
+	            }, {
+	                selector: ".key-x",
+	                code: e.X,
+	                key: "x"
+	            }, {
+	                selector: ".key-c",
+	                code: e.C,
+	                key: "c"
+	            }, {
+	                selector: ".key-h",
+	                code: e.H,
+	                key: "h"
+	            }, {
+	                selector: ".key-j",
+	                code: e.J,
+	                key: "j"
+	            }, {
+	                selector: ".key-k",
+	                code: e.K,
+	                key: "k"
+	            }, {
+	                selector: ".key-u",
+	                code: e.U,
+	                key: "u"
+	            }];
+	            $("body").on("touchmove", function(A) {
+	                A.preventDefault()
+	            }, !1);
+	            var r = "mouse" == A ? "mousedown" : "touchstart"
+	                , o = "mouse" == A ? "mouseup" : "touchend";
+	            n.forEach(function(A) {
+	                t(A.selector, r, "keydown", A.code, A.key),
+	                    t(A.selector, o, "keyup", A.code, A.key);
+	                var e = window.document.getElementsByClassName(A.selector.slice(1));
+	                e && e[0] && e[0].addEventListener("contextmenu", function(A) {
+	                    A.preventDefault()
+	                })
+	            })
+	        }
+	        e.Q = 81,
+	        e.W = 87,
+	        e.E = 69,
+	        e.A = 65,
+	        e.S = 83,
+	        e.D = 68,
+	        e.Z = 90,
+	        e.X = 88,
+	        e.C = 67,
+	        e.H = 72,
+	        e.I = 73,
+	        e.J = 74,
+	        e.K = 75,
+	        e.U = 85,
+	        n("ontouchstart"in document ? "touch" : "mouse"),
+	        document.oncontextmenu = function(A) {
+	            A.preventDefault()
+	        }
+    	}
+	</script>
+</body>
+</html>

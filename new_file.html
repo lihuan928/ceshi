@@ -1,32 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head lang="zh-CN">
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1"/>
- <title></title>
- <style>
-     .button {
-         width: 200px;
-         height: 200px;
-         background-color: antiquewhite;
-         margin: 20px;
-         text-align: center;
-         line-height: 200px;
-     }
- </style>
-</head>
-<body>
- <div class="button">Button</div>
- <script>
-     "use strict";
-     var btn = document.querySelector('.button');
-     document.addEventListener('keyup', function (event) {
-         console.log(String.fromCharCode(event.keyCode));
-     }, false);
-     var ev = new KeyboardEvent('keyup', {
-         keyCode: 67
-     });
-     document.dispatchEvent(ev);
- </script>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/jquery.1.11.3.min.js"></script>
+		<script>
+			$.get('https://www.xttel.cn/towerpower/f/order/getthisorder?orderid=200110172606840811&type=0',function(obj){
+				var msg = $.parseJSON(obj)
+				console.log(msg.data)
+			})
+		</script>
+	</body>
 </html>
